@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    
+    <body id="bb">
+
+        <p>This site is under contruction</p>    
+       
+       <script>
+            function setCookie(cname, cvalue, exdays) {
+                const d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/";
+            }
+    
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) === 0) {
+                        return decodeURIComponent(c.substring(name.length, c.length));
+                    }
+                }
+                return "";
+            }
+    
+            function checkCookie() {
+                let user = getCookie("username");
+                if (user !== "") {
+                    alert("Welcome back, " + user + "!");
+                } else {
+                    let newUser = prompt("What is your name:", "");
+                    if (newUser !== null && newUser !== "") {
+                        setCookie("username", newUser, 30);
+                        alert("Nice to meet you, " + newUser + "!");
+                    }
+                }
+            }
+    
+            // Run on page load
+            checkCookie();
+        </script>
+
+    </body>
+    
+    
+    <footer>
+        <p>&copy; 2025  Romeo Dumay</p>
+    </footer>
+</html>
