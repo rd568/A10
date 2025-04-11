@@ -35,12 +35,12 @@
             function checkCookie() {
                 let user = getCookie("username");
                 if (user !== "") {
-                    alert("Welcome back, " + user + "!");
+                    alert("Welcome back, "+user+ "How you like the website so far leave any feedback for me");
                 } else {
-                    let newUser = prompt("What is your name:", "");
+                    let newUser = prompt("This is my site what is your name:", "");
                     if (newUser !== null && newUser !== "") {
                         setCookie("username", newUser, 30);
-                        alert("Nice to meet you, " + newUser + "!");
+                        alert("Wellcome to my site Nice to meet you, " + newUser + "!");
                     }
                 }
             }
